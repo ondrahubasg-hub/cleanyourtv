@@ -15,8 +15,27 @@ adapter on that port can drop the same way, so plan to do the whole session in o
 
 ---
 
-I want to debloat my Android TV and replace its launcher with a clean Apple TV style home screen.
-My TV model is: <MODEL NAME HERE>. Work on the real device, step by step, and verify everything you
+Metz 40MTB7000 (Metz Blue, Android TV 9, Full HD, 2021). It has no list in
+examples/; the nearest is examples/metz-43mub8000 (different series, same Android TV 9 family),
+use it as a hint only and trust what you find on the real TV.
+
+My answers to your checklist questions:
+- Dock size: 7 slots. Apps in this order: YouTube, Twitch, Kick, Prime Video, Oneplay, Spotify,
+  and the seventh slot stays free for now. Check how the launcher handles an unfilled dock slot
+  (columns and dock_apps in config.xml) and ask me if it is unclear. Never disable any of these
+  apps. If one of them is not installed yet, tell me to install it from Google Play first, and do
+  not guess package names: find them on the TV.
+- Voice assistant: I don't need it, you may disable it (the Assistant / voice search).
+- Chromecast: I use it, keep everything it needs working.
+- Firmware updates: keep the updater enabled.
+- Network: the built-in RJ45 Ethernet port, no USB adapter. Nothing is plugged into the USB ports.
+- Private DNS ad blocking: ask me before setting it.
+
+Connecting: the 43MUB8000 had no network debugging toggle and needed a USB-C to USB-A cable plus
+`adb tcpip 5555`, with only one USB port answering. Try the network on 5555 first, and if it
+stays closed, tell me what to do.
+Clock: that TV came up at the year 2000 until `settings put global auto_time` was toggled 0 then 1.
+Check the date before judging the launcher. Work on the real device, step by step, and verify everything you
 do with screenshots pulled from the TV. Ask me before anything that depends on my preferences.
 Where these steps name a file under `tools/`, `docs/` or `examples/` that is not in your working
 folder, you are running without this repo: clone it first with
